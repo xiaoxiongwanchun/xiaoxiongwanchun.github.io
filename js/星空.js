@@ -3,6 +3,7 @@ let $swiper = document.querySelector('#swiper')
 let $back = document.querySelector('.back')
 let $trigger = document.querySelector('.trigger')
 let $note = document.querySelector('.note')
+let $audio = document.querySelector('.audio')
 
 main()
 
@@ -32,7 +33,6 @@ function main () {
 		}
 	})
 
-
 	var hammertime = new Hammer(document.querySelector('.bg-1'));
 
 	hammertime.get('pan').set({ direction: Hammer.DIRECTION_UP });
@@ -44,6 +44,21 @@ function main () {
 	$back.addEventListener('touchstart', function () {
 		$swiper.classList.remove('z-show')
 	})
+
+	let play = 0
+	$audio.play()
+	$note.addEventListener('touchstart', function () {
+		if (play) {
+			$note.classList.remove('z-play')
+			$audio.pause()
+			play = 0
+		} else {
+			$note.classList.add('z-play')
+			$audio.play()
+			play = 1
+		}
+	})
+
 }
 
 function imgLoader (url) {
