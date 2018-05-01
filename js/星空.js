@@ -10,7 +10,7 @@ function main () {
 	// 等待资源加载好后显示文字
 	Promise.all([
 		imgLoader('images/星空/bg.jpg'),
-		imgLoader('images/星空/001.jpg'),
+		imgLoader('images/星空/011.jpg'),
 		imgLoader('images/星空/note.svg')
 	]).then(res => {
 		// 显示文字
